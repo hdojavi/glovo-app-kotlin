@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="model"
+            type="com.jhernando.glovomvvm.viewmodel.BusinessViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="7dp"
+            android:elevation="3dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/rl_imgCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgBusiness"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:adjustViewBounds="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Hold business thumbnail"
+                        android:foreground="#60000000"
+                        android:scaleType="centerCrop"
+                        app:imageUrl="@{model.getBusinessAt(position).thumb}" />
+
+                    <TextView
+                        android:id="@+id/nameCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@{model.getBusinessAt(position).name}"
+                        android:textColor="@color/editTextColorWhite"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/descCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@{model.getBusinessAt(position).description}"
+                        android:textColor="@color/editTextColorWhite"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="130dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.33"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/ic_directions_bike_black_24dp" />
+
+                            <TextView
+                                android:id="@+id/priceCard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="start"
+                                android:text="@{String.valueOf(model.getBusinessAt(position).shippingprice)}"
+                                android:textColor="@color/editTextColorWhite"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/rateCard"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.33"
+                            android:fontFamily="sans-serif-condensed-light"
+                            android:gravity="center"
+                            android:text="@{String.valueOf(model.getBusinessAt(position).rate)}"
+                            android:textColor="@color/editTextColorWhite"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.33"
+                            android:gravity="end"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/ic_location_on_black_24dp" />
+
+                            <TextView
+                                android:id="@+id/kmCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="end"
+                                android:text="@{String.valueOf(model.getBusinessAt(position).kmaway)}"
+                                android:textColor="@color/editTextColorWhite"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
