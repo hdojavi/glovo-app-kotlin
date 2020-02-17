@@ -1,13 +1,14 @@
-package com.jhernando.glovomvvm.model
+package com.jhernando.glovomvvm.model.business
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.JsonElement
+import com.jhernando.glovomvvm.model.ApiAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BusinessRepositoryImpl : BusinessRepository {
+class BusinessRepositoryImpl :
+    BusinessRepository {
 
     private var businesses = MutableLiveData<List<Business>>()
 

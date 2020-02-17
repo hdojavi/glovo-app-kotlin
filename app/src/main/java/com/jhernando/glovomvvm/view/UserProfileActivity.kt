@@ -3,5 +3,5 @@ package com.jhernando.glovomvvm.view
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-class ordersActivity: Fragment() {
+class UserProfileActivity: Fragment() {
 }

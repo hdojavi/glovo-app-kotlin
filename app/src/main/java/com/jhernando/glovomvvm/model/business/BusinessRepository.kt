@@ -1,4 +1,4 @@
-package com.jhernando.glovomvvm.model
+package com.jhernando.glovomvvm.model.business
 
 import androidx.lifecycle.MutableLiveData
 
