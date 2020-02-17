@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.jhernando.glovomvvm.R
-import com.jhernando.glovomvvm.view.businessActivity
+import com.jhernando.glovomvvm.view.business.BusinessActivity
 
 class HomeFragment : Fragment() {
     var searchBtn: ImageView? = null
@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         if (query.isEmpty()) {
             Toast.makeText(context, "Nada que buscar...", Toast.LENGTH_SHORT).show()
         } else {
-            val intent = Intent(context, businessActivity::class.java)
+            val intent = Intent(context, BusinessActivity::class.java)
             intent.putExtra("id", 0)
             intent.putExtra("query", query)
             startActivity(intent)
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
     }
 
     fun goCategory(id: Int) {
-        val intent = Intent(context, businessActivity::class.java)
+        val intent = Intent(context, BusinessActivity::class.java)
         intent.putExtra("id", id)
         startActivity(intent)
     }

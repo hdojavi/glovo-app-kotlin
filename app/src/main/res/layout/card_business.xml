@@ -16,7 +16,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="180dp"
+        android:onClick="@{(v) -> model.goToBusiness(v, model.getBusinessAt(position))}">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

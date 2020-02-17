@@ -38,14 +38,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when (menuItem.getItemId()) {
             R.id.navigation_home -> fragment = HomeFragment()
             R.id.navigation_orders -> if (userId > 0) {
-                fragment = ordersActivity()
+                fragment = OrdersActivity()
             } else {
                 Toast.makeText(this, "Cuenta necesaria para ir a Tus pedidos!", Toast.LENGTH_SHORT)
                     .show()
                 return false
             }
             R.id.navigation_profile -> if (userId > 0) {
-                fragment = userProfileActivity()
+                fragment = UserProfileActivity()
             } else {
                 Toast.makeText(this, "Cuenta necesaria para ir a Tu perfil!", Toast.LENGTH_SHORT)
                     .show()

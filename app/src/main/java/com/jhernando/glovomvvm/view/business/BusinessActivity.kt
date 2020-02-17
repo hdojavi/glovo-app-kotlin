@@ -1,21 +1,20 @@
-package com.jhernando.glovomvvm.view
+package com.jhernando.glovomvvm.view.business
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.jhernando.glovomvvm.R
 import com.jhernando.glovomvvm.databinding.ActivityBusinessBinding
-import com.jhernando.glovomvvm.model.Business
+import com.jhernando.glovomvvm.model.business.Business
+import com.jhernando.glovomvvm.model.business.Product
 import com.jhernando.glovomvvm.viewmodel.BusinessViewModel
 
-class businessActivity : AppCompatActivity() {
+class BusinessActivity : AppCompatActivity() {
     private var id = 0;
     private var btnBack: ImageView? = null
     private var searchBtn: ImageView? = null
@@ -67,5 +66,6 @@ class businessActivity : AppCompatActivity() {
             businessViewModel?.setBusinessInRecyclerAdapter(businesses)
         })
     }
+
 }
 
