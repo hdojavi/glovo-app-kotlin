@@ -44,7 +44,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/productNumber"
+                            android:id="@+id/productNumberText"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_marginLeft="10dp"
@@ -57,7 +57,7 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:id="@+id/removeProduct"
+                            android:id="@+id/removeProductButton"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -127,7 +127,7 @@
                             android:layout_gravity="bottom|end"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/ic_add_circle_black_24dp"
-                            android:onClick="@{(v)-> model.addProductsItemClick(position, v)}" />
+                            android:onClick="@{()-> model.addProductsItemClick(position)}" />
 
                     </LinearLayout>
                 </LinearLayout>

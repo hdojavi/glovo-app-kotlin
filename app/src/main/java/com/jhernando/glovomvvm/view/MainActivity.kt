@@ -12,6 +12,8 @@ import com.jhernando.glovomvvm.R
 import com.jhernando.glovomvvm.view.fragments.HomeFragment
 import com.jhernando.glovomvvm.view.fragments.SettingsFragment
 import com.jhernando.glovomvvm.view.fragments.UserSettingsFragment
+import com.jhernando.glovomvvm.view.order.OrdersActivity
+import com.jhernando.glovomvvm.view.user.UserProfileActivity
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
@@ -23,12 +25,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     private fun loadFragment(fragment: Fragment): Boolean {
-        if (fragment != null) {
-            getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment).commit()
-            return true
-        }
-        return false
+        getSupportFragmentManager().beginTransaction()
+            .replace(R.id.fragment_container, fragment).commit()
+        return true
     }
 
     override fun onNavigationItemSelected(@NonNull menuItem: MenuItem): Boolean {
@@ -45,7 +44,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return false
             }
             R.id.navigation_profile -> if (userId > 0) {
-                fragment = UserProfileActivity()
+                fragment =
+                    UserProfileActivity()
             } else {
                 Toast.makeText(this, "Cuenta necesaria para ir a Tu perfil!", Toast.LENGTH_SHORT)
                     .show()

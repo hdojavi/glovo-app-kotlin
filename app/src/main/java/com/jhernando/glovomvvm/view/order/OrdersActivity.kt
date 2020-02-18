@@ -1,4 +1,4 @@
-package com.jhernando.glovomvvm.view
+package com.jhernando.glovomvvm.view.order
 
 import android.content.Context
 import android.content.Intent

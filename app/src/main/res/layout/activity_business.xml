@@ -24,7 +24,7 @@
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/arrowBack"
+                android:id="@+id/arrowBackBusiness"
                 android:layout_width="57dp"
                 android:layout_height="49dp"
                 android:layout_weight="0.1"

@@ -11,6 +11,7 @@ class Product(productJson: JsonObject?) : Serializable {
     var description: String? = null
     var price:Float = 0F
     var businessid = 0
+    var business: Business? = null
 
     init {
         try {
@@ -18,7 +19,8 @@ class Product(productJson: JsonObject?) : Serializable {
             name = productJson!!.get("name").asString
             description = productJson!!.get("description").asString
             price = productJson!!.get("price").asFloat
-            businessid = productJson!!.get("business").asInt
+            businessid = productJson!!.get("businessId").asInt
+            business = productJson!!.get("business") as Business
         } catch (e: Exception) {
             e.printStackTrace()
         }

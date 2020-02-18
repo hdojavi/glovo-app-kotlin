@@ -10,6 +10,7 @@ import com.jhernando.glovomvvm.R
 import com.jhernando.glovomvvm.model.business.Product
 import com.jhernando.glovomvvm.model.business.ProductObservable
 import com.jhernando.glovomvvm.view.product.RecyclerProductAdapter
+import kotlinx.android.synthetic.main.card_products.view.*
 
 class ProductViewModel : ViewModel() {
 
@@ -41,28 +42,27 @@ class ProductViewModel : ViewModel() {
     }
 
     fun addProductsItemClick(
-        position: Int,
-        view: View
+        position: Int
     ) {
-        productCart!!.add(getProductsAt(position)!!)
+        /*productCart!!.add(getProductsAt(position)!!)
         var quantity = 0
         for (p in productCart!!) {
             if (p.id === getProductsAt(position)!!.id) {
-                view.findViewById<TextView>(R.id.productNumber).setText((++quantity).toString() + "x")
+                productNumberText.text = (++quantity).toString() + "x"
             }
         }
-        view.findViewById<MaterialButton>(R.id.removeProduct)!!.visibility = View.VISIBLE
+        removeProductButton.visibility = View.VISIBLE
         var quantities = 0
         var price = 0.0
         for (p in productCart!!) {
             quantities++
             price += p.price
         }
-        view.findViewById<MaterialButton>(R.id.buttonOrders)!!.text = "PEDIR $quantities POR " + String.format(
+        buttonOrders.text = "PEDIR $quantities POR " + String.format(
             "%.2f",
             price
         ).replace('.', ',') + " €"
-        view.findViewById<MaterialButton>(R.id.buttonOrders)!!.visibility = View.VISIBLE
+        buttonOrders.visibility = View.VISIBLE*/
     }
 
     fun removeProductsItemClick(
