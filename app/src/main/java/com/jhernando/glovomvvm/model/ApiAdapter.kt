@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiAdapter {
-    val urlApi = "http://172.21.2.1:8080/";
+    val urlApi = "http://172.21.1.37:8080/";
 
     fun getClientService(): ApiService {
         val authInterceptor = Interceptor { chain ->
