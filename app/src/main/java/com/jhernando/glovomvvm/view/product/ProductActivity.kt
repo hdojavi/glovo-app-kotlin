@@ -20,6 +20,7 @@ import com.jhernando.glovomvvm.model.business.Business
 import com.jhernando.glovomvvm.model.business.Product
 import com.jhernando.glovomvvm.viewmodel.ProductViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.card_products.view.*
 
 class ProductActivity : AppCompatActivity() {
     private var userDetails: SharedPreferences? = null
@@ -86,7 +87,6 @@ class ProductActivity : AppCompatActivity() {
 
         activityMainBinding.setModel(productViewModel)
         setupListUpdate()
-
     }
 
     fun setupListUpdate() {
