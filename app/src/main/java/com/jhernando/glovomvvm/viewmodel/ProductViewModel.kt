@@ -43,30 +43,27 @@ class ProductViewModel : ViewModel() {
     }
 
     fun addProductsItemClick(
-        position: Int,
-        view: View
+        position: Int
     ) {
-        var textProduct = view.productNumber
-        productCart!!.add(getProductsAt(position)!!)
+        /*productCart!!.add(getProductsAt(position)!!)
         var quantity = 0
         for (p in productCart!!) {
             if (p.id === getProductsAt(position)!!.id) {
-                ++quantity
-                textProduct.text = "$quantity x"
+                productNumberText.text = (++quantity).toString() + "x"
             }
         }
-        view.removeProduct.visibility = View.VISIBLE
+        removeProductButton.visibility = View.VISIBLE
         var quantities = 0
         var price = 0.0
         for (p in productCart!!) {
             quantities++
             price += p.price
         }
-        /*view.orderButton.text = "PEDIR $quantities POR " + String.format(
+        buttonOrders.text = "PEDIR $quantities POR " + String.format(
             "%.2f",
             price
         ).replace('.', ',') + " €"
-        view.orderButton.visibility = View.VISIBLE*/
+        buttonOrders.visibility = View.VISIBLE*/
     }
 
     fun removeProductsItemClick(

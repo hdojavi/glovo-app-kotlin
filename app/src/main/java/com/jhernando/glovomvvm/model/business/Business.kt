@@ -9,7 +9,7 @@ class Business(businessJson: JsonObject?) : Serializable {
     var description: String? = null
     var shippingprice:Double = 0.0
     var rate = 0
-    var kmaway: Double = 0.0
+    var kmaway: Int = 0
     var thumb: String? = null
 
     init {
@@ -19,10 +19,11 @@ class Business(businessJson: JsonObject?) : Serializable {
             description = businessJson!!.get("description").asString
             shippingprice = businessJson!!.get("shippingprice").asDouble
             rate = businessJson!!.get("rate").asInt
-            kmaway = businessJson!!.get("kmaway").asDouble
+            kmaway = businessJson!!.get("kmaway").asInt
             thumb = businessJson!!.get("thumb").asString
         } catch (e: Exception) {
             e.printStackTrace()
+            throw e
         }
     }
 }

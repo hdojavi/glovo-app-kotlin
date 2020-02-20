@@ -14,6 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.business.BusinessActivity" />
         <activity android:name=".view.product.ProductActivity" />
+        <activity android:name=".view.user.UserLoginActivity" />
+        <activity android:name=".view.user.UserRegisterActivity" />
         <activity android:name="view.fragments.HomeFragment" />
         <activity
             android:name=".view.MainActivity"
