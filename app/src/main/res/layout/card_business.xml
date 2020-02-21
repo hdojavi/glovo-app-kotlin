@@ -108,7 +108,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed-light"
                                 android:gravity="start"
-                                android:text="@{String.valueOf(model.getBusinessAt(position).shippingprice)}"
+                                android:text="@{String.valueOf(model.getBusinessAt(position).shippingprice)+`€`}"
                                 android:textColor="@color/editTextColorWhite"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -120,7 +120,7 @@
                             android:layout_weight="0.33"
                             android:fontFamily="sans-serif-condensed-light"
                             android:gravity="center"
-                            android:text="@{String.valueOf(model.getBusinessAt(position).rate)}"
+                            android:text="@{String.valueOf(model.getBusinessAt(position).rate)+`%`}"
                             android:textColor="@color/editTextColorWhite"
                             android:textSize="20sp" />
 
@@ -142,7 +142,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed-light"
                                 android:gravity="end"
-                                android:text="@{String.valueOf(model.getBusinessAt(position).kmaway)}"
+                                android:text="@{model.getBusinessAt(position).kmaway > 1000 ? String.valueOf(model.getBusinessAt(position).kmaway / 1000 )+`km` : String.valueOf(model.getBusinessAt(position).kmaway)+`m` }"
                                 android:textColor="@color/editTextColorWhite"
                                 android:textSize="20sp" />
 

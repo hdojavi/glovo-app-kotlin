@@ -1,5 +1,9 @@
 package com.jhernando.glovomvvm.viewmodel
 
+import android.content.Context
+import android.content.Intent
+import android.media.Image
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -10,7 +14,10 @@ import com.google.android.material.button.MaterialButton
 import com.jhernando.glovomvvm.R
 import com.jhernando.glovomvvm.model.business.Product
 import com.jhernando.glovomvvm.model.business.ProductObservable
+import com.jhernando.glovomvvm.view.order.OrderProductsActivity
+import com.jhernando.glovomvvm.view.product.ProductActivity
 import com.jhernando.glovomvvm.view.product.RecyclerProductAdapter
+import kotlinx.android.synthetic.main.activity_products.view.*
 import kotlinx.android.synthetic.main.card_products.view.*
 
 class ProductViewModel : ViewModel() {
@@ -43,34 +50,28 @@ class ProductViewModel : ViewModel() {
     }
 
     fun addProductsItemClick(
-        position: Int
+        position: Int, buttonRemove: ImageView, textProduct: TextView
     ) {
-        /*productCart!!.add(getProductsAt(position)!!)
+        productCart!!.add(getProductsAt(position)!!)
         var quantity = 0
         for (p in productCart!!) {
             if (p.id === getProductsAt(position)!!.id) {
-                productNumberText.text = (++quantity).toString() + "x"
+                textProduct.text = (++quantity).toString() + "x"
             }
         }
-        removeProductButton.visibility = View.VISIBLE
+        buttonRemove.visibility = View.VISIBLE
         var quantities = 0
         var price = 0.0
         for (p in productCart!!) {
             quantities++
-            price += p.price
+            price += p.price!!
         }
-        buttonOrders.text = "PEDIR $quantities POR " + String.format(
-            "%.2f",
-            price
-        ).replace('.', ',') + " €"
-        buttonOrders.visibility = View.VISIBLE*/
     }
 
     fun removeProductsItemClick(
         position: Int,
-        numberProduct: TextView,
         removeProduct: ImageView,
-        buttonOrder: MaterialButton
+        numberProduct: TextView
     ) {
         productCart!!.remove(getProductsAt(position)!!)
         if (numberProduct.text.toString() == "1x") {
@@ -83,21 +84,22 @@ class ProductViewModel : ViewModel() {
                     numberProduct.text.length - 1
                 )
             ) - 1
-            numberProduct.setText(number.toString() + "x")
+            numberProduct.text = number.toString() + "x"
         }
-        if (productCart!!.isEmpty()) {
-            buttonOrder!!.visibility = View.INVISIBLE
-        } else {
+        if (!productCart!!.isEmpty()) {
             var quantities = 0
             var price = 0.0
             for (p in productCart!!) {
                 quantities++
-                price += p.price
+                price += p.price!!
             }
-            buttonOrder!!.text = "PEDIR $quantities POR " + String.format(
-                "%.2f",
-                price
-            ).replace('.', ',') + " €"
         }
+    }
+
+    fun goToOrderDetail(view: View){
+        var context: Context? = view.context
+        val intent = Intent(context, OrderProductsActivity::class.java)
+        intent.putExtra("cart", productCart)
+        context!!.startActivity(intent)
     }
 }

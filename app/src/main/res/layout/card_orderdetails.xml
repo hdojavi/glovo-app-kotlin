@@ -10,7 +10,7 @@
 
         <variable
             name="model"
-            type="com.jhernando.glovomvvm.viewmodel.ProductViewModel" />
+            type="com.jhernando.glovomvvm.viewmodel.OrderDetailViewModel" />
     </data>
 
     <LinearLayout
@@ -44,7 +44,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/productNumberProduct"
+                            android:id="@+id/productNumberDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_marginLeft="10dp"
@@ -52,19 +52,10 @@
                             android:fontFamily="sans-serif-condensed-light"
                             android:gravity="center"
                             android:maxLines="1"
+                            android:text="@{model.getOrderDetailAt(position).quantity+`x`}"
                             android:textColor="@color/editTextColorBlack"
                             android:textSize="18sp"
                             android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/removeProductButtonCardProduct"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginLeft="10dp"
-                            android:gravity="center_vertical"
-                            android:onClick="@{()-> model.removeProductsItemClick(position, removeProductButtonCardProduct, productNumberProduct)}"
-                            android:src="@drawable/ic_remove_circle_black_24dp"
-                            android:visibility="invisible" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -74,7 +65,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/nameCardProduct"
+                            android:id="@+id/nameCardDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_marginLeft="20dp"
@@ -82,23 +73,10 @@
                             android:layout_marginRight="20dp"
                             android:fontFamily="sans-serif-condensed-medium"
                             android:lines="2"
-                            android:text="@{model.getProductsAt(position).name}"
+                            android:text="@{model.getOrderDetailAt(position).productname}"
                             android:textColor="@color/editTextColorBlack"
                             android:textSize="18sp" />
 
-                        <TextView
-                            android:id="@+id/descCardProduct"
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:ellipsize="end"
-                            android:fontFamily="sans-serif-condensed-light"
-                            android:gravity="center_vertical"
-                            android:maxLines="1"
-                            android:text="@{model.getProductsAt(position).description}"
-                            android:textColor="@color/editTextColorBlack"
-                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -109,7 +87,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/priceCardProduct"
+                            android:id="@+id/priceCardDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -117,18 +95,10 @@
                             android:fontFamily="sans-serif-condensed-light"
                             android:gravity="end"
                             android:maxLines="1"
-                            android:text="@{String.valueOf(model.getProductsAt(position).price)+`€`}"
+                            android:text="@{String.valueOf(model.getOrderDetailAt(position).price)+`€`}"
                             android:textColor="@color/editTextColorBlack"
                             android:textSize="18sp" />
 
-                        <ImageView
-                            android:id="@+id/addProductCardProduct"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="bottom|end"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_add_circle_black_24dp"
-                            android:onClick="@{()-> model.addProductsItemClick(position, removeProductButtonCardProduct, productNumberProduct)}" />
 
                     </LinearLayout>
                 </LinearLayout>

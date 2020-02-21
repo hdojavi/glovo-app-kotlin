@@ -11,6 +11,7 @@ import com.jhernando.glovomvvm.model.business.BusinessObservable
 import com.jhernando.glovomvvm.model.business.Order
 import com.jhernando.glovomvvm.model.business.OrderObservable
 import com.jhernando.glovomvvm.view.business.RecyclerBusinessAdapter
+import com.jhernando.glovomvvm.view.order.OrderDetailActivity
 import com.jhernando.glovomvvm.view.order.RecyclerOrderAdapter
 import com.jhernando.glovomvvm.view.product.ProductActivity
 
@@ -35,7 +36,7 @@ class OrderViewModel : ViewModel() {
     }
 
     fun getRecyclerOrderAdapter(): RecyclerOrderAdapter? {
-        recyclerOrderAdapter = RecyclerOrderAdapter(this, R.layout.activity_order_fragment)
+        recyclerOrderAdapter = RecyclerOrderAdapter(this, R.layout.card_orders)
         return recyclerOrderAdapter
     }
 
@@ -46,7 +47,7 @@ class OrderViewModel : ViewModel() {
 
     fun goToOrder(view: View, order: Order){
         var context: Context? = view.context
-        val intent = Intent(context, ProductActivity::class.java)
+        val intent = Intent(context, OrderDetailActivity::class.java)
         intent.putExtra("id", order.id)
         context!!.startActivity(intent)
     }

@@ -1,5 +1,6 @@
 package com.jhernando.glovomvvm.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -37,7 +38,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when (menuItem.getItemId()) {
             R.id.navigation_home -> fragment = HomeFragment()
             R.id.navigation_orders -> if (userId > 0) {
-                fragment = OrdersActivity()
+                val intent = Intent(this, OrdersActivity::class.java)
+                startActivity(intent)
+                return false
             } else {
                 Toast.makeText(this, "Cuenta necesaria para ir a Tus pedidos!", Toast.LENGTH_SHORT)
                     .show()

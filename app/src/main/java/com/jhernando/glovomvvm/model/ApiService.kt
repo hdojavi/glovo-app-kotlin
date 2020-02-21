@@ -1,7 +1,10 @@
 package com.jhernando.glovomvvm.model
 
 import com.jhernando.glovomvvm.model.business.Business
+import com.jhernando.glovomvvm.model.business.Order
+import com.jhernando.glovomvvm.model.business.OrderDetail
 import com.jhernando.glovomvvm.model.business.Product
+import com.jhernando.glovomvvm.model.user.User
 import retrofit2.Call
 import retrofit2.http.*
 import java.util.*
@@ -15,6 +18,9 @@ interface ApiService {
 
     @GET("orders/user/{id}")
     fun getOrders(@Path("id") id: Int): Call<ArrayList<Order>>
+
+    @GET("orderdetails/order/{id}")
+    fun getOrderDetails(@Path("id") id: Int): Call<ArrayList<OrderDetail>>
 
     @POST("users/login")
     fun getUser(@Body user: User): Call<User>

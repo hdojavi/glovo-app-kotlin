@@ -20,7 +20,6 @@ import com.jhernando.glovomvvm.model.business.Business
 import com.jhernando.glovomvvm.model.business.Product
 import com.jhernando.glovomvvm.viewmodel.ProductViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.card_products.view.*
 import kotlinx.android.synthetic.main.activity_products.*
 
 class ProductActivity : AppCompatActivity() {
@@ -33,7 +32,7 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_products)
 
-        arrowBackProducts.setOnClickListener(View.OnClickListener { finish() })
+        arrowBackProducts.setOnClickListener({ finish() })
 
         userDetails = getSharedPreferences("userdetails", Context.MODE_PRIVATE)
 
@@ -79,18 +78,18 @@ class ProductActivity : AppCompatActivity() {
     }
 
     private fun initCards() {
-        searchQuery.hint = "Buscar en " + thisBusiness!!.name + "..."
-        nameCard.text = thisBusiness!!.name
+        searchQuery.setHint("Buscar en " + thisBusiness!!.name + "...")
+        nameCardBusiness.text = thisBusiness!!.name
         val shippingPrice = thisBusiness!!.shippingprice.toString().replace('.', ',') + "€"
-        priceCard.text = shippingPrice
-        rateCard.text = Integer.toString(thisBusiness!!.rate) + "%"
+        priceCardBusiness.text = shippingPrice
+        rateCardBusiness.text = Integer.toString(thisBusiness!!.rate) + "%"
         val kmAway = thisBusiness!!.kmaway / 1000
         if (kmAway > 1) {
-            kmCard.text = kmAway.toString() + "km"
+            kmCardBusiness.text = kmAway.toString() + "km"
         } else {
-            kmCard.text = thisBusiness!!.kmaway.toString() + "m"
+            kmCardBusiness.text = thisBusiness!!.kmaway.toString() + "m"
         }
-        Picasso.with(this).load(thisBusiness!!.thumb).into(imgBusinessProduct)
+        Picasso.with(this).load(thisBusiness!!.thumb).into(imgBusinessProductDetail)
     }
 
 }

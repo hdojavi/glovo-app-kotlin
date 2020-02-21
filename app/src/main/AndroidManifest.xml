@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.business.BusinessActivity" />
+        <activity android:name=".view.order.OrdersActivity" />
+        <activity android:name=".view.order.OrderProductsActivity" />
+        <activity android:name=".view.order.OrderDetailActivity" />
         <activity android:name=".view.product.ProductActivity" />
         <activity android:name=".view.user.UserLoginActivity" />
         <activity android:name=".view.user.UserRegisterActivity" />

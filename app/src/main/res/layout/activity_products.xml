@@ -24,7 +24,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imgBusinessProduct"
+                android:id="@+id/imgBusinessProductDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -93,12 +93,12 @@
             android:background="@drawable/card_rounded">
 
             <RelativeLayout
-                android:id="@+id/rl_imgCard"
+                android:id="@+id/rl_imgCardBusiness"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/nameCard"
+                    android:id="@+id/nameCardBusiness"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -134,7 +134,7 @@
                             android:background="@drawable/ic_directions_bike_white_24dp" />
 
                         <TextView
-                            android:id="@+id/priceCard"
+                            android:id="@+id/priceCardBusiness"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed-light"
@@ -144,7 +144,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/rateCard"
+                        android:id="@+id/rateCardBusiness"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
@@ -166,13 +166,13 @@
                             android:background="@drawable/ic_location_on_white_24dp" />
 
                         <TextView
-                            android:id="@+id/kmCard"
+                            android:id="@+id/kmCardBusiness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed-light"
                             android:gravity="end"
                             android:textColor="@color/editTextColorBlack"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -216,9 +216,10 @@
             android:backgroundTint="@color/colorPrimaryDark"
             android:clickable="true"
             android:fontFamily="sans-serif-condensed-light"
+            android:onClick="@{ (v)-> model.goToOrderDetail(v)}"
+            android:text="Hacer pedido"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:visibility="invisible"
             app:cornerRadius="6dp" />
     </RelativeLayout>
 </layout>
